@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Rect</title>
+     <style>
+          canvas {border: 1px solid black;}
+     </style>
+</head>
+<body>
+     <canvas id="rect" width="300" height="200"></canvas>
+     <canvas id="fill-rect" width="300" height="200"></canvas>
+     <canvas id="clear-rect" width="300" height="200"></canvas>
+     <canvas id="stroke-rect" width="300" height="200"></canvas>
+     <script src="lib/jquery-3.4.1.min.js"></script>
+     <script>
+          $(document).ready(function(){
+               var rect = $("#rect").get(0);
+               var rectCtx = rect.getContext("2d");
+               rectCtx.rect(25,25,200,100);
+               rectCtx.fillStyle = "#00dbef";
+               rectCtx.fill();
+               /*-----------------------------------*/
+               var fillRect = $("#fill-rect").get(0);
+               fillRectCtx = fillRect.getContext("2d");
+               fillRectCtx.fillStyle = "blue";
+               fillRectCtx.fillRect(25,25,200,100);
+               /*-----------------------------------*/
+               var clearRect = $("#clear-rect").get(0);
+               clearRectCtx = clearRect.getContext("2d");
+               clearRectCtx.fillRect(0,0,300,200);
+               clearRectCtx.clearRect(50,50,200,100);
+               /*-----------------------------------*/
+               var strokeRect = $("#stroke-rect").get(0);
+               strokeRectCtx = strokeRect.getContext("2d");
+               /*strokeRectCtx.lineWidth = 5;*/
+               strokeRectCtx.strokeRect(25,25,200,100);
+          });
+     </script>
+</body>
+</html>
